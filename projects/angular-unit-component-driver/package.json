@@ -1,22 +1,21 @@
 {
-  "name": "angular-component-driver",
-  "version": "0.0.2",
+  "name": "angular-unit-component-driver",
+  "version": "0.1.0",
+  "author": "Balint Csaszar",
   "description": "Test Angular components in jasmine with component drivers",
-  "homepage": "https://github.com/PastaBolo/angular-component-driver",
   "keywords": [
     "angular",
-    "testing",
+    "unit testing",
     "jasmine",
     "component",
     "driver",
     "component testing",
     "component driver"
   ],
-  "author": "PastaBolo",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PastaBolo/angular-component-driver"
+    "url": "https://github.com/csaszika/angular-unit-component-driver.git"
   },
   "peerDependencies": {
     "@angular/common": "^7.2.0",

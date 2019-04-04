@@ -6,13 +6,13 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine-given', 'jasmine', '@angular-devkit/build-angular'],
     plugins: [
-      require('karma-jasmine'),
+      require('@angular-devkit/build-angular/plugins/karma'),
       require('karma-chrome-launcher'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-jasmine'),
+      require('karma-jasmine-diff-reporter'),
       require('karma-jasmine-given'),
-      require('karma-mocha-reporter'),
-      require('karma-jasmine-diff-reporter')
+      require('karma-mocha-reporter')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser

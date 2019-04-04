@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "angular-component-driver": [
-        "dist/angular-component-driver"
+      "angular-unit-component-driver": [
+        "dist/angular-unit-component-driver"
       ],
-      "angular-component-driver/*": [
-        "dist/angular-component-driver/*"
+      "angular-unit-component-driver/*": [
+        "dist/angular-unit-component-driver/*"
       ]
     }
   }

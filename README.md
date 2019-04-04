@@ -2,7 +2,7 @@
 
 Test your Angular components in an easiest way with component drivers !
 
-You can find more details <u>**[here](/projects/angular-component-driver/README.md)**</u>
+You can find more details <u>**[here](/projects/angular-unit-component-driver/README.md)**</u>
 
 - access the fixture properties
 - query DOM elements, directives and components
