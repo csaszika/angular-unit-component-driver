@@ -10,15 +10,15 @@ import {
   LoggerService
 } from './fake-classes-to-test';
 
-function testingSetup(loggerService: Spy<LoggerService>) {
-  return componentTestingSetup({
+const testingSetup = (loggerService: Spy<LoggerService>): QuestionComponentDriver => {
+  return componentTestingSetup<QuestionComponentDriver>({
     componentClass: QuestionComponent,
     driver: QuestionComponentDriver,
     servicesToStub: [QuestionService],
     overrideProviders: [{ clazz: LoggerService, mockValue: loggerService}],
     declarations: [AnswerDirective]
   });
-}
+};
 
 describe('QuestionComponent', () => {
   let questionComponentDriver: QuestionComponentDriver;
@@ -26,7 +26,7 @@ describe('QuestionComponent', () => {
   const loggerService: Spy<LoggerService> = createSpyFromClass(LoggerService);
 
   beforeEach(() => {
-    questionComponentDriver = testingSetup(loggerService).createComponentDriver();
+    questionComponentDriver = testingSetup(loggerService);
     questionServiceSpy = questionComponentDriver.injector.get(QuestionService);
   });
 

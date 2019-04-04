@@ -1,7 +1,8 @@
-import { TestBed } from '@angular/core/testing'
-import { Provider } from '@angular/core'
+import { TestBed } from '@angular/core/testing';
+import { Provider } from '@angular/core';
+import { createSpyFromClass } from 'jasmine-auto-spies';
 
-import { createSpyFromClass } from 'jasmine-auto-spies'
+import {ComponentDriver} from "./component-driver";
 
 interface SetupConf {
   componentClass: any;
@@ -13,7 +14,7 @@ interface SetupConf {
   imports?: any[];
 }
 
-export function componentTestingSetup({
+export function componentTestingSetup<T extends ComponentDriver>({
   componentClass,
   driver: ComponentDriver,
   servicesToStub = [],
@@ -21,7 +22,7 @@ export function componentTestingSetup({
   providers = [],
   overrideProviders = [],
   imports = []
-}: SetupConf) {
+}: SetupConf): T {
   servicesToStub = servicesToStub.map<Provider>(serviceClass => ({
     provide: serviceClass,
     useValue: createSpyFromClass(serviceClass)
@@ -42,9 +43,5 @@ export function componentTestingSetup({
     }
   });
 
-  return {
-    createComponentDriver() {
-      return new ComponentDriver(TestBed.createComponent(componentClass), TestBed)
-    }
-  }
+  return new ComponentDriver(TestBed.createComponent(componentClass), TestBed) as T;
 }

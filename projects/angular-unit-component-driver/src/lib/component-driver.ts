@@ -5,16 +5,16 @@ import { By } from '@angular/platform-browser'
 type PublicPart<T> = { [P in keyof T]: T[P] }
 
 export class ComponentDriver<T = any> implements PublicPart<ComponentFixture<T>> {
-  injector: { get(token: any, notFoundValue?: any): any }
+  injector: { get(token: any, notFoundValue?: any): any };
 
   // ComponentFixture implementation
-  componentRef = this.fixture.componentRef
-  ngZone = this.fixture.ngZone
-  debugElement = this.fixture.debugElement
-  componentInstance = this.fixture.componentInstance
-  nativeElement = this.fixture.nativeElement
-  elementRef = this.fixture.elementRef
-  changeDetectorRef = this.fixture.changeDetectorRef
+  componentRef = this.fixture.componentRef;
+  ngZone = this.fixture.ngZone;
+  debugElement = this.fixture.debugElement;
+  componentInstance = this.fixture.componentInstance;
+  nativeElement = this.fixture.nativeElement;
+  elementRef = this.fixture.elementRef;
+  changeDetectorRef = this.fixture.changeDetectorRef;
   detectChanges(checkNoChanges?: boolean): void {
     this.fixture.detectChanges(checkNoChanges)
   }
@@ -42,7 +42,7 @@ export class ComponentDriver<T = any> implements PublicPart<ComponentFixture<T>>
   }
 
   protected querySelector<U = HTMLElement>(selector: string): U {
-    const debugElement = this.debugElement.query(By.css(selector))
+    const debugElement = this.debugElement.query(By.css(selector));
     return debugElement ? debugElement.nativeElement : null
   }
 
@@ -51,7 +51,7 @@ export class ComponentDriver<T = any> implements PublicPart<ComponentFixture<T>>
   }
 
   protected queryDirective<U>(directive: Type<U>): U {
-    const debugElement = this.debugElement.query(By.directive(directive))
+    const debugElement = this.debugElement.query(By.directive(directive));
     return debugElement ? debugElement.injector.get(directive) : null
   }
 
