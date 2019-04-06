@@ -12,6 +12,7 @@ interface SetupConf {
   providers?: any[];
   overrideProviders?: any[];
   imports?: any[];
+  schemas?: any[];
 }
 
 export function componentTestingSetup<T extends ComponentDriver>({
@@ -21,7 +22,8 @@ export function componentTestingSetup<T extends ComponentDriver>({
   declarations = [],
   providers = [],
   overrideProviders = [],
-  imports = []
+  imports = [],
+  schemas = []
 }: SetupConf): T {
   servicesToStub = servicesToStub.map<Provider>(serviceClass => ({
     provide: serviceClass,
@@ -36,7 +38,8 @@ export function componentTestingSetup<T extends ComponentDriver>({
   TestBed.configureTestingModule({
     declarations: [componentClass].concat(declarations),
     providers: providers.concat(servicesToStub),
-    imports
+    imports,
+    schemas
   }).overrideComponent(componentClass, {
     set: {
       providers: overrideProviders

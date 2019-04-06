@@ -1,6 +1,6 @@
 {
   "name": "angular-unit-component-driver",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Balint Csaszar",
   "description": "Test Angular components in jasmine with component drivers",
   "scripts": {
